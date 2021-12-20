@@ -264,8 +264,58 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
-  m_BuildTargetPlatformIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: d68e06b74df27ce4795bc2248a57ac1c, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
+  m_BuildTargetPlatformIcons:
+  - m_BuildTarget: tvOS
+    m_Icons:
+    - m_Textures: []
+      m_Width: 4640
+      m_Height: 1440
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 2320
+      m_Height: 720
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 3840
+      m_Height: 1440
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 1920
+      m_Height: 720
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 2819000a71702c9408b978814c86b983, type: 3}
+      - {fileID: 2800000, guid: a530e2947adbc814cac47eb80516d084, type: 3}
+      m_Width: 1280
+      m_Height: 768
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 12f5acf34765f024f8caf469bf5130f4, type: 3}
+      - {fileID: 2800000, guid: a3bdd0238db52b04e87898207c8a11d6, type: 3}
+      m_Width: 800
+      m_Height: 480
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures:
+      - {fileID: 2800000, guid: 1ed41eb06fa7c7d46b353cf532fe60a4, type: 3}
+      - {fileID: 2800000, guid: 79f0bf3316d22e84da501d5f74bc3dea, type: 3}
+      m_Width: 400
+      m_Height: 240
+      m_Kind: 0
+      m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
