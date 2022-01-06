@@ -2,6 +2,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using TMPro;
+using UnityEngine.tvOS;
 
 public class LoadGameInfo : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class LoadGameInfo : MonoBehaviour
 
     private void Start()
     {
+        Remote.allowExitToHome = false;
         DontDestroyOnLoad(gameObject);
         m_DataPath = Application.persistentDataPath + "/../YellowRidersHospitalGame.txt";
         filePath.text = "File Path: " + m_DataPath;
