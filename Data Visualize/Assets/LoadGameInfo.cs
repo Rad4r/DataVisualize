@@ -40,6 +40,8 @@ public class LoadGameInfo : MonoBehaviour
                 }
             }
         }
+        else
+            Debug.Log("File Not Found"); // Maybe check somewhere
         return new LoadObject(){gameName = "default", dateTime = "00/00/00", highScore = 0,versionNumber = "0", infoFound = false};
     }
     
