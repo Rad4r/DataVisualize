@@ -18,6 +18,7 @@ public class GameInfoScreen : MonoBehaviour
     
     [Header("Screen")] 
     [SerializeField] private GameObject menuScreen;
+    [SerializeField] private GameObject debugScreen;
     private LoadObject gameData;
 
     private void Update()
@@ -26,6 +27,7 @@ public class GameInfoScreen : MonoBehaviour
         {
             menuScreen.SetActive(true);
             gameObject.SetActive(false);
+            debugScreen.SetActive(false);
             Invoke("ResetButtonSelection", .1f);
         }
     }
@@ -37,10 +39,20 @@ public class GameInfoScreen : MonoBehaviour
 
     public void UpdateGameInfo()
     {
+        UpdateInfoLive();
+        // UpdateLocalData();
+    }
+    private async void UpdateInfoLive()
+    {
         string game = EventSystem.current.currentSelectedGameObject.name;
-        gameData = FindObjectOfType<LoadGameInfo>().FindData(game);
+        if (game == "DEBUG")
+            debugScreen.SetActive(true);
         menuScreen.SetActive(false);
         gameObject.SetActive(true);
+        
+        
+        
+        gameData = await FindObjectOfType<DBManager>().LoadInfo(game); //Load info
 
         gameNameUI.text = gameData.gameName;
         versionNumbUI.text = gameData.versionNumber;
@@ -61,6 +73,31 @@ public class GameInfoScreen : MonoBehaviour
         }
     }
     
+    void UpdateLocalData()
+    {
+        string game = EventSystem.current.currentSelectedGameObject.name;
+        gameData = FindObjectOfType<LoadGameInfo>().FindData(game);
+        menuScreen.SetActive(false);
+        gameObject.SetActive(true);
+        
+        gameNameUI.text = gameData.gameName;
+        versionNumbUI.text = gameData.versionNumber;
+        dateUI.text = gameData.dateTime;
+        highScoreUI.text = gameData.highScore.ToString();
+        if (gameData.infoFound)
+            gameFound.text = "Info found";
+        else
+            gameFound.text = "Info unavailable";
+        
+        foreach (ImageDetail img in images)
+        {
+            if (img.imageName == game)
+            {
+                gameIcon.sprite = img.imageSprite;
+                break;
+            }
+        }
+    }
 }
 
 [Serializable]
