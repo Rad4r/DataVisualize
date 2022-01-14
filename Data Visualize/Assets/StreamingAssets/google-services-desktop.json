@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "410282599731",
+    "firebase_url": "https://hospitaldatabaseyellow-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "hospitaldatabaseyellow",
+    "storage_bucket": "hospitaldatabaseyellow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410282599731:ios:c93b09741649542f720a46",
+        "android_client_info": {
+          "package_name": "com.YellowRiders.DataVisualize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410282599731-lmj5b5j64h5jc6dgq9bf0djeme2u0h1g.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5nWJCKNC3FgGVwBigzl8Ubnk5spfrYGA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
