@@ -12,8 +12,9 @@ public class DBManager : MonoBehaviour
 {
     FirebaseDatabase database;
 
-    private const string INFOKEY = "Debug_DataVisualize";
+    private const string INFOKEY = "DEBUG";
     private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+    private LoadObject newDebugInfo;
 
     private void Start()
     {
@@ -45,17 +46,15 @@ public class DBManager : MonoBehaviour
     {
         database = FirebaseDatabase.DefaultInstance;
         
-        LoadObject newInfo = new LoadObject()
+        newDebugInfo = new LoadObject()
         {
             gameName = Application.productName,
             versionNumber = Application.version,
             dateTime = DateTime.Now.ToString(),
             highScore = highScore
         };
-        
-        Debug.Log("Device ID = " + Device.advertisingIdentifier);
 
-        string json = JsonUtility.ToJson(newInfo);
+        string json = JsonUtility.ToJson(newDebugInfo);
         
         if (Device.advertisingIdentifier == "")
             database.GetReference("testPC").Child(INFOKEY).SetRawJsonValueAsync(json);
@@ -91,16 +90,18 @@ public class DBManager : MonoBehaviour
 
         if (reference.Exists)
         {
+            Debug.Log("Info Found");
             LoadObject gameInfo = JsonUtility.FromJson<LoadObject>(reference.GetRawJsonValue());
             gameInfo.infoFound = true;
             return gameInfo;
         }
-
         if (gameName == "DEBUG")
         {
-            UpdateHighscore(0);
-            return await LoadInfo(gameName);
+            Debug.Log("INFO NOT FOUND SO NEW created");
+            UpdateHighscore(0); //wait for this then 
+            return newDebugInfo;
         }
+        
         Debug.LogError("Could not find this data");
         return new LoadObject(){gameName = "default", dateTime = "00/00/00", highScore = 0,versionNumber = "0", infoFound = false};
     }

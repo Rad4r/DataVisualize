@@ -19,6 +19,7 @@ public class GameInfoScreen : MonoBehaviour
     [Header("Screen")] 
     [SerializeField] private GameObject menuScreen;
     [SerializeField] private GameObject debugScreen;
+    [SerializeField] private GameObject minusButton;
     private LoadObject gameData;
 
     private void Update()
@@ -46,7 +47,11 @@ public class GameInfoScreen : MonoBehaviour
     {
         string game = EventSystem.current.currentSelectedGameObject.name;
         if (game == "DEBUG")
+        {
             debugScreen.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(minusButton);
+        }
+            
         menuScreen.SetActive(false);
         gameObject.SetActive(true);
         

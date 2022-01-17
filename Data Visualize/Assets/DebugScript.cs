@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.tvOS;
 
 public class DebugScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI advertIDText;
     private float score;
     private static DBManager DB;
 
     private void Start()
     {
         DB = FindObjectOfType<DBManager>();
+        advertIDText.text = Device.advertisingIdentifier;
         SetScore();
         // score = DB.LoadScore().GetAwaiter();
     }
